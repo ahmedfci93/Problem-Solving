@@ -1,0 +1,53 @@
+/*
+ID: ahmed.i3
+LANG: C++
+TASK: ride
+*/
+#include <stdio.h>
+#include <string.h>
+#include <algorithm>
+
+using namespace std;
+
+char letter[27]="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+int check(char[]);
+
+main () {
+    FILE *fin  = fopen ("ride.in", "r");
+    FILE *fout = fopen ("ride.out", "w");
+    int rem1, rem2;
+    char g[3]="GO";
+    char s[5]="STAY";
+    char comat[8];
+    char group[8];
+
+    fscanf (fin, "%s %s", comat, group);
+    rem1=check(comat);
+    rem2=check(group);
+    if((rem1 % 47) == (rem2 % 47))
+	{
+		fprintf (fout, "%s\n", g);
+	} else  fprintf (fout, "%s\n", s);
+    
+    exit (0);
+}
+
+int check(char x[]){
+
+	int sum=1, j=0, i, l , f;
+	sort (x, x+6);
+	for(l=0; l <6 ; l++)
+{	
+	f =1;
+	for(i=0; i<26 && f ;i++)
+	{	
+		if(x[l] == letter[i])
+		{
+			sum *= i+1;
+			f =0;
+		}
+	}
+}
+return sum;
+}
