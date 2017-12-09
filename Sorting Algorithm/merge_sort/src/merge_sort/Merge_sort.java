@@ -31,7 +31,7 @@ public class Merge_sort {
         k=low;
         while(i<p1 && j<p2)
         {
-            if(l[i]<r[j])
+            if(l[i]<=r[j])
             {
                 a[k]=l[i];
                 i++;
