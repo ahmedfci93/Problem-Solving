@@ -1,0 +1,27 @@
+public class Solution {
+    public int isPrime(int A) {
+        if(A==2)return 1;
+        if(A==0||A==1||A%2==0)return 0;
+        for(int i=3 ; i<=Math.sqrt(A);i+=2)
+            if (A%i==0)return 0;
+        return 1;
+    }
+    public ArrayList<Integer> primesum(int A) {
+        ArrayList<Integer> ans=new ArrayList<Integer>();
+        int x,y;
+        for (int i = 2; i <=A; i++) {
+            x=i;
+            if(isPrime(x)==1)
+            {
+                y=A-x;
+                if(isPrime(y)==1)
+                {
+                    ans.add(x);
+                    ans.add(y);
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+}
