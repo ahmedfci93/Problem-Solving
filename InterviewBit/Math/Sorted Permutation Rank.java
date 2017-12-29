@@ -11,7 +11,6 @@ public class Solution {
     public int findRank(String A) {
         int mod=1000003;
         int sz=A.length();
-        char c[]=A.toCharArray();
         BigInteger b=new BigInteger("1");
         for (int i = 2; i <= sz; i++) {
             b=b.multiply(new BigInteger(Integer.toString(i)));
